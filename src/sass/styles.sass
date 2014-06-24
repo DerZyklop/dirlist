@@ -30,60 +30,38 @@ a
   padding: 1em
   background-color: $tertiary
   border: 1px solid $tertiary - #222
+  a
+    padding: 1em
+    display: block
+    text-decoration: none
 
 #listingheader
-  padding: 1em
   color: $quadrary
-  text-align: right
+  text-align: left
+  background-color: $tertiary - #444
   a
     color: $quadrary
 
-#listingheader .file
-  text-align: left
-  float: left
-  width: 10%
+.file
+  text-align: center
 
-#listingheader .size
+.modified
   text-align: right
-  width: 10%
-  float: left
+
+.size
+  text-align: right
+
+table
+  border-spacing: 0
 
 #listing
-  border: 1px solid #A7C5FF
-  a
-    display: block
-    padding: 1em
-    font-family: Arial, Helvetica, sans-serif
-    text-decoration: none
-    text-align: right
+  tr
     &:hover
-      background-color: #DBE6FE
+      background-color: $border-color
+  a
     img
-      float: left
-      margin-right: 4px
-    strong
-      width: 10%
-      float: left
-      cursor: hand
-      cursor: pointer
-      text-align: left
-    em
-      float: left
-      width: 10%
-      text-align: right
-      cursor: hand
-      cursor: pointer
-    span
-      position: absolute
-      margin-left: -151px
-      margin-top: -2px
-      img
-        width: 150px
-        background-color: #CCCCCC
-        visibility: hidden
-    &:hover span img
-      border: 1px solid #666666
-      visibility: visible
+      display: block
+      margin: 0 auto
 
 #upload
   border: 1px solid #A7C5FF
@@ -91,10 +69,8 @@ a
   margin-top: 10px
   font-size: small
   color: #6285CA
-  font-family: Arial, Helvetica, sans-serif
   text-decoration: none
-  width: 568px
-  background-color: #E9F0FF
+  background-color: $quadrary - #111
 
 #uploadtitle
   background-color: #DBE6FE
@@ -105,25 +81,20 @@ a
   padding: 2px 5px 2px 5px
 
 #copy
-  width: 600px
   margin-left: auto
   margin-right: auto
   text-align: center
   font-size: x-small
   color: #666666
-  font-family: Arial, Helvetica, sans-serif
   a
     text-decoration: underline
     color: #666666
 
 .b
-  background-color: #E9F0FF
+  background-color: $quadrary - #111
 
 .w
   background-color: #FFFFFF
-
-.mod, .size
-  float: right
 
 .upload-error
   padding: 2px 0

@@ -240,60 +240,35 @@ a {
   padding: 1em;
   background-color: #999999;
   border: 1px solid #777777; }
+  #listingcontainer a {
+    padding: 1em;
+    display: block;
+    text-decoration: none; }
 
 #listingheader {
-  padding: 1em;
   color: #fefefe;
-  text-align: right; }
+  text-align: left;
+  background-color: #555555; }
   #listingheader a {
     color: #fefefe; }
 
-#listingheader .file {
-  text-align: left;
-  float: left;
-  width: 10%; }
+.file {
+  text-align: center; }
 
-#listingheader .size {
-  text-align: right;
-  width: 10%;
-  float: left; }
+.modified {
+  text-align: right; }
 
-#listing {
-  border: 1px solid #a7c5ff; }
-  #listing a {
-    display: block;
-    padding: 1em;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
-    text-align: right; }
-    #listing a:hover {
-      background-color: #dbe6fe; }
-    #listing a img {
-      float: left;
-      margin-right: 4px; }
-    #listing a strong {
-      width: 10%;
-      float: left;
-      cursor: hand;
-      cursor: pointer;
-      text-align: left; }
-    #listing a em {
-      float: left;
-      width: 10%;
-      text-align: right;
-      cursor: hand;
-      cursor: pointer; }
-    #listing a span {
-      position: absolute;
-      margin-left: -151px;
-      margin-top: -2px; }
-      #listing a span img {
-        width: 150px;
-        background-color: #cccccc;
-        visibility: hidden; }
-    #listing a:hover span img {
-      border: 1px solid #666666;
-      visibility: visible; }
+.size {
+  text-align: right; }
+
+table {
+  border-spacing: 0; }
+
+#listing tr:hover {
+  background-color: #dddddd; }
+#listing a img {
+  display: block;
+  margin: 0 auto; }
 
 #upload {
   border: 1px solid #a7c5ff;
@@ -301,10 +276,8 @@ a {
   margin-top: 10px;
   font-size: small;
   color: #6285ca;
-  font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
-  width: 568px;
-  background-color: #e9f0ff; }
+  background-color: #ededed; }
 
 #uploadtitle {
   background-color: #dbe6fe;
@@ -315,25 +288,20 @@ a {
   padding: 2px 5px 2px 5px; }
 
 #copy {
-  width: 600px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   font-size: x-small;
-  color: #666666;
-  font-family: Arial, Helvetica, sans-serif; }
+  color: #666666; }
   #copy a {
     text-decoration: underline;
     color: #666666; }
 
 .b {
-  background-color: #e9f0ff; }
+  background-color: #ededed; }
 
 .w {
   background-color: white; }
-
-.mod, .size {
-  float: right; }
 
 .upload-error {
   padding: 2px 0; }
