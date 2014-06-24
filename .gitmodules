@@ -1,0 +1,6 @@
+[submodule "boilerplate.pxwrk.de"]
+	path = boilerplate.pxwrk.de
+	url = git@github.com:DerZyklop/boilerplate.pxwrk.de.git
+[submodule "src/sass/sass-boilerplate"]
+	path = src/sass/sass-boilerplate
+	url = git@github.com:DerZyklop/sass-boilerplate.git

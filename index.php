@@ -6,12 +6,12 @@ Script Author: Ash Young <ash@evoluted.net> / www.evoluted.net
 
 REQUIREMENTS
 ============
-This script requires PHP and GD2 if you wish to use the 
+This script requires PHP and GD2 if you wish to use the
 thumbnail functionality.
 
 INSTRUCTIONS
 ============
-1) Unzip all files 
+1) Unzip all files
 2) Edit this file, making sure everything is setup as required.
 3) Upload to server
 
@@ -20,33 +20,33 @@ CONFIGURATION
 Edit the variables in this section to make the script work as
 you require.
 
-Include URL - If you are including this script in another file, 
+Include URL - If you are including this script in another file,
 please define the URL to the Directory Listing script (relative
 from the host)
 */
 $includeurl = false;
 
 /*
-Start Directory - To list the files contained within the current 
-directory enter '.', otherwise enter the path to the directory 
-you wish to list. The path must be relative to the current 
-directory and cannot be above the location of index.php within the 
+Start Directory - To list the files contained within the current
+directory enter '.', otherwise enter the path to the directory
+you wish to list. The path must be relative to the current
+directory and cannot be above the location of index.php within the
 directory structure.
 */
 $startdir = '.';
 
 /*
-Show Thumbnails? - Set to true if you wish to use the 
+Show Thumbnails? - Set to true if you wish to use the
 scripts auto-thumbnail generation capabilities.
 This requires that GD2 is installed.
 */
-$showthumbnails = true; 
+$showthumbnails = true;
 
 /*
 Memory Limit - The image processor that creates the thumbnails
-may require more memory than defined in your PHP.INI file for 
+may require more memory than defined in your PHP.INI file for
 larger images. If a file is too large, the image processor will
-fail and not generate thumbs. If you require more memory, 
+fail and not generate thumbs. If you require more memory,
 define the amount (in megabytes) below
 */
 $memorylimit = false; // Integer
@@ -57,16 +57,16 @@ If not set this to false
 */
 $showdirs = true;
 
-/* 
+/*
 Force downloads - Do you want to force people to download the files
 rather than viewing them in their browser?
 */
 $forcedownloads = false;
 
 /*
-Hide Files - If you wish to hide certain files or directories 
+Hide Files - If you wish to hide certain files or directories
 then enter their details here. The values entered are matched
-against the file/directory names. If any part of the name 
+against the file/directory names. If any part of the name
 matches what is entered below then it is not shown.
 */
 $hide = array(
@@ -76,7 +76,7 @@ $hide = array(
 				'.htaccess',
 				'.htpasswd'
 			);
-			
+
 /* Only Display Files With Extension... - if you only wish the user
 to be able to view files with certain extensions, add those extensions
 to the following array. If the array is commented out, all file
@@ -89,16 +89,16 @@ types will be displayed.
 					'zip',
 					'txt'
 				);*/
-			 
-/* 
+
+/*
 Show index files - if an index file is found in a directory
-to you want to display that rather than the listing output 
+to you want to display that rather than the listing output
 from this script?
-*/			
+*/
 $displayindex = false;
 
 /*
-Allow uploads? - If enabled users will be able to upload 
+Allow uploads? - If enabled users will be able to upload
 files to any viewable directory. You should really only enable
 this if the area this script is in is already password protected.
 */
@@ -136,18 +136,18 @@ $indexfiles = array (
 				'default.htm',
 				'default.html'
 			);
-			
+
 /*
-File Icons - If you want to add your own special file icons use 
-this section below. Each entry relates to the extension of the 
-given file, in the form <extension> => <filename>. 
+File Icons - If you want to add your own special file icons use
+this section below. Each entry relates to the extension of the
+given file, in the form <extension> => <filename>.
 These files must be located within the dlf directory.
 */
 $filetypes = array (
 				'png' => 'jpg.gif',
 				'jpeg' => 'jpg.gif',
 				'bmp' => 'jpg.gif',
-				'jpg' => 'jpg.gif', 
+				'jpg' => 'jpg.gif',
 				'gif' => 'gif.gif',
 				'zip' => 'archive.png',
 				'rar' => 'archive.png',
@@ -173,7 +173,7 @@ $filetypes = array (
 				'gz' => 'archive.png',
 				'asc' => 'sig.gif',
 			);
-			
+
 /*
 That's it! You are now ready to upload this script to the server.
 
@@ -197,28 +197,28 @@ $startdir = $leadon;
 
 if($_GET['dir']) {
 	//check this is okay.
-	
+
 	if(substr($_GET['dir'], -1, 1)!='/') {
 		$_GET['dir'] = strip_tags($_GET['dir']) . '/';
 	}
-	
+
 	$dirok = true;
 	$dirnames = split('/', strip_tags($_GET['dir']));
 	for($di=0; $di<sizeof($dirnames); $di++) {
-		
+
 		if($di<(sizeof($dirnames)-2)) {
 			$dotdotdir = $dotdotdir . $dirnames[$di] . '/';
 		}
-		
+
 		if($dirnames[$di] == '..') {
 			$dirok = false;
 		}
 	}
-	
+
 	if(substr($_GET['dir'], 0, 1)=='/') {
 		$dirok = false;
 	}
-	
+
 	if($dirok) {
 		 $leadon = $leadon . strip_tags($_GET['dir']);
 	}
@@ -230,7 +230,7 @@ if($_GET['download'] && $forcedownloads) {
 
 	if(file_exists($includeurl . $leadon . $file)) {
 		header("Content-type: application/x-download");
-		header("Content-Length: ".filesize($includeurl . $leadon . $file)); 
+		header("Content-Length: ".filesize($includeurl . $leadon . $file));
 		header('Content-Disposition: attachment; filename="'.$file.'"');
 		readfile($includeurl . $leadon . $file);
 		die();
@@ -245,7 +245,7 @@ if($allowuploads && $_FILES['file']) {
 			$upload = false;
 		}
 	}
-	
+
 	if($uploadtypes)
 	{
 		if(!in_array(substr($_FILES['file']['name'], strpos($_FILES['file']['name'], '.')+1, strlen($_FILES['file']['name'])), $uploadtypes))
@@ -257,14 +257,14 @@ if($allowuploads && $_FILES['file']) {
 			{
 				if($i == sizeof($uploadtypes) && sizeof($uploadtypes) != 1) $uploaderror.= ' and ';
 				else if($i != 1) $uploaderror.= ', ';
-				
+
 				$uploaderror.= '.'.strtoupper($v);
-				
+
 				$i++;
 			}
 		}
 	}
-	
+
 	if($upload) {
 		move_uploaded_file($_FILES['file']['tmp_name'], $includeurl.$leadon . $_FILES['file']['name']);
 	}
@@ -279,7 +279,7 @@ if(!file_exists($opendir)) {
 
 clearstatcache();
 if ($handle = opendir($opendir)) {
-	while (false !== ($file = readdir($handle))) { 
+	while (false !== ($file = readdir($handle))) {
 		//first see if this file is required in the listing
 		if ($file == "." || $file == "..")  continue;
 		$discard = false;
@@ -288,11 +288,11 @@ if ($handle = opendir($opendir)) {
 				$discard = true;
 			}
 		}
-		
+
 		if($discard) continue;
 		if (@filetype($includeurl.$leadon.$file) == "dir") {
 			if(!$showdirs) continue;
-		
+
 			$n++;
 			if($_GET['sort']=="date") {
 				$key = @filemtime($includeurl.$leadon.$file) . ".$n";
@@ -313,10 +313,10 @@ if ($handle = opendir($opendir)) {
 			else {
 				$key = $n;
 			}
-			
+
 			if($showtypes && !in_array(substr($file, strpos($file, '.')+1, strlen($file)), $showtypes)) unset($file);
 			if($file) $files[$key] = $file;
-			
+
 			if($displayindex) {
 				if(in_array(strtolower($file), $indexfiles)) {
 					header("Location: $leadon$file");
@@ -325,7 +325,7 @@ if ($handle = opendir($opendir)) {
 			}
 		}
 	}
-	closedir($handle); 
+	closedir($handle);
 }
 
 //sort our files
@@ -334,11 +334,11 @@ if($_GET['sort']=="date") {
 	@ksort($files, SORT_NUMERIC);
 }
 elseif($_GET['sort']=="size") {
-	@natcasesort($dirs); 
+	@natcasesort($dirs);
 	@ksort($files, SORT_NUMERIC);
 }
 else {
-	@natcasesort($dirs); 
+	@natcasesort($dirs);
 	@natcasesort($files);
 }
 
@@ -354,7 +354,7 @@ $dirs = @array_values($dirs); $files = @array_values($files);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Directory Listing of <?php echo str_replace('\\', '', dirname(strip_tags($_SERVER['PHP_SELF']))).'/'.$leadon;?></title>
-<link rel="stylesheet" type="text/css" href="<?php echo $includeurl; ?>dlf/styles.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $includeurl; ?>build/css/styles.css" />
 <?php
 if($showthumbnails) {
 ?>
@@ -376,23 +376,23 @@ function f(n) {
 </head>
 <body>
 <div id="container">
-  <h1>Directory Listing of <?php echo str_replace('\\', '', dirname(strip_tags($_SERVER['PHP_SELF']))).'/'.$leadon;?></h1>
-  <div id="breadcrumbs"> <a href="<?php echo strip_tags($_SERVER['PHP_SELF']);?>">home</a> 
-  <?php
- 	 $breadcrumbs = split('/', str_replace($startdir, '', $leadon));
-  	if(($bsize = sizeof($breadcrumbs))>0) {
-  		$sofar = '';
-  		for($bi=0;$bi<($bsize-1);$bi++) {
+	<h1>Directory Listing of <?php echo str_replace('\\', '', dirname(strip_tags($_SERVER['PHP_SELF']))).'/'.$leadon;?></h1>
+	<div id="breadcrumbs"> <a href="<?php echo strip_tags($_SERVER['PHP_SELF']);?>">home</a>
+	<?php
+	 $breadcrumbs = split('/', str_replace($startdir, '', $leadon));
+		if(($bsize = sizeof($breadcrumbs))>0) {
+			$sofar = '';
+			for($bi=0;$bi<($bsize-1);$bi++) {
 			$sofar = $sofar . $breadcrumbs[$bi] . '/';
 			echo ' &gt; <a href="'.strip_tags($_SERVER['PHP_SELF']).'?dir='.urlencode($sofar).'">'.$breadcrumbs[$bi].'</a>';
 		}
-  	}
-  
+		}
+
 	$baseurl = strip_tags($_SERVER['PHP_SELF']) . '?dir='.strip_tags($_GET['dir']) . '&amp;';
 	$fileurl = 'sort=name&amp;order=asc';
 	$sizeurl = 'sort=size&amp;order=asc';
 	$dateurl = 'sort=date&amp;order=asc';
-	
+
 	switch ($_GET['sort']) {
 		case 'name':
 			if($_GET['order']=='asc') $fileurl = 'sort=name&amp;order=desc';
@@ -400,23 +400,23 @@ function f(n) {
 		case 'size':
 			if($_GET['order']=='asc') $sizeurl = 'sort=size&amp;order=desc';
 			break;
-			
+
 		case 'date':
 			if($_GET['order']=='asc') $dateurl = 'sort=date&amp;order=desc';
-			break;  
+			break;
 		default:
 			$fileurl = 'sort=name&amp;order=desc';
 			break;
 	}
-  ?>
-  </div>
-  <div id="listingcontainer">
-    <div id="listingheader"> 
-	<div id="headerfile"><a href="<?php echo $baseurl . $fileurl;?>">File</a></div>
-	<div id="headersize"><a href="<?php echo $baseurl . $sizeurl;?>">Size</a></div>
-	<div id="headermodified"><a href="<?php echo $baseurl . $dateurl;?>">Last Modified</a></div>
+	?>
 	</div>
-    <div id="listing">
+	<div id="listingcontainer">
+		<div id="listingheader">
+	<div class="file"><a href="<?php echo $baseurl . $fileurl;?>">File</a></div>
+	<div class="size"><a href="<?php echo $baseurl . $sizeurl;?>">Size</a></div>
+	<div class="modified"><a href="<?php echo $baseurl . $dateurl;?>">Last Modified</a></div>
+	</div>
+		<div id="listing">
 	<?php
 	$class = 'b';
 	if($dirok) {
@@ -432,31 +432,31 @@ function f(n) {
 	<div><a href="<?php echo strip_tags($_SERVER['PHP_SELF']).'?dir='.urlencode(str_replace($startdir,'',$leadon).$dirs[$i]);?>" class="<?php echo $class;?>"><img src="<?php echo $includeurl; ?>dlf/folder.png" alt="<?php echo $dirs[$i];?>" /><strong><?php echo $dirs[$i];?></strong> <em>-</em> <?php echo date ("M d Y h:i:s A", filemtime($includeurl.$leadon.$dirs[$i]));?></a></div>
 	<?php
 		if($class=='b') $class='w';
-		else $class = 'b';	
+		else $class = 'b';
 	}
-	
+
 	$arsize = sizeof($files);
 	for($i=0;$i<$arsize;$i++) {
 		$icon = 'unknown.png';
 		$ext = strtolower(substr($files[$i], strrpos($files[$i], '.')+1));
 		$supportedimages = array('gif', 'png', 'jpeg', 'jpg');
 		$thumb = '';
-		
+
 		if($showthumbnails && in_array($ext, $supportedimages)) {
 			$thumb = '<span><img src="dlf/trans.gif" alt="'.$files[$i].'" name="thumb'.$i.'" /></span>';
 			$thumb2 = ' onmouseover="o('.$i.', \''.urlencode($leadon . $files[$i]).'\');" onmouseout="f('.$i.');"';
-			
+
 		}
-		
+
 		if($filetypes[$ext]) {
 			$icon = $filetypes[$ext];
 		}
-		
+
 		$filename = $files[$i];
 		if(strlen($filename)>43) {
 			$filename = substr($files[$i], 0, 40) . '...';
 		}
-		
+
 		$fileurl = $includeurl . $leadon . $files[$i];
 		if($forcedownloads) {
 			$fileurl = $_SESSION['PHP_SELF'] . '?dir=' . urlencode(str_replace($startdir,'',$leadon)) . '&download=' . urlencode($files[$i]);
@@ -466,12 +466,12 @@ function f(n) {
 	<div><a href="<?php echo $fileurl;?>" class="<?php echo $class;?>"<?php echo $thumb2;?>><img src="<?php echo $includeurl; ?>dlf/<?php echo $icon;?>" alt="<?php echo $files[$i];?>" /><strong><?php echo $filename;?></strong> <em><?php echo round(filesize($includeurl.$leadon.$files[$i])/1024);?>KB</em> <?php echo date ("M d Y h:i:s A", filemtime($includeurl.$leadon.$files[$i]));?><?php echo $thumb;?></a></div>
 	<?php
 		if($class=='b') $class='w';
-		else $class = 'b';	
-	}	
+		else $class = 'b';
+	}
 	?></div>
 	<?php
 	if($allowuploads) {
-		$phpallowuploads = (bool) ini_get('file_uploads');		
+		$phpallowuploads = (bool) ini_get('file_uploads');
 		$phpmaxsize = ini_get('upload_max_filesize');
 		$phpmaxsize = trim($phpmaxsize);
 		$last = strtolower($phpmaxsize{strlen($phpmaxsize)-1});
@@ -481,12 +481,12 @@ function f(n) {
 			case 'm':
 				$phpmaxsize *= 1024;
 		}
-	
+
 	?>
 	<div id="upload">
 		<div id="uploadtitle">
 			<strong>File Upload</strong> (Max Filesize: <?php echo $phpmaxsize;?>KB)
-			
+
 			<?php if($uploaderror) echo '<div class="upload-error">'.$uploaderror.'</div>'; ?>
 		</div>
 		<div id="uploadcontent">
@@ -505,12 +505,12 @@ function f(n) {
 			}
 			?>
 		</div>
-		
+
 	</div>
 	<?php
 	}
 	?>
-  </div>
+	</div>
 </div>
 <div id="copy">Directory Listing Script &copy;2008 Evoluted, <a href="http://www.evoluted.net/">Web Design Sheffield</a>.</div>
 </body>

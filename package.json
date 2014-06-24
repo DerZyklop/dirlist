@@ -1,0 +1,30 @@
+{
+  "name": "boilerplate.pxwrk.de",
+  "description": "Project by @DerZyklop",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Nils Neumann <mail@der-zyklop.com>",
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-autoprefixer": "0.6.x",
+    "grunt-concurrent": "~0.5.0",
+    "grunt-contrib-coffee": "0.7.x",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-copy": "0.4.x",
+    "grunt-contrib-cssmin": "0.6.x",
+    "grunt-contrib-imagemin": "0.x",
+    "grunt-contrib-sass": "0.4.x",
+    "grunt-contrib-uglify": "0.2.x",
+    "grunt-contrib-watch": "0.5.x",
+    "grunt-eslint": "~0.3.2",
+    "grunt-image-embed": "~0.3.1",
+    "grunt-newer": "~0.6.1",
+    "grunt-notify": "^0.3.0",
+    "grunt-php": "0.2.x",
+    "grunt-shell": "~0.6.1",
+    "matchdep": "0.1.x"
+  },
+  "dependencies": {
+    "time-grunt": "~0.2.10"
+  }
+}

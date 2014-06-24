@@ -1,0 +1,131 @@
+@import 'sass-boilerplate/mixins/all'
+@import 'variables'
+
++all
+
+body
+  font-family: $font-std
+
+h1, h2, h3, h4, h5, h6
+  color: $primary
+
+#container
+  width: 80%
+  border: 1px solid $border-color
+  padding: $space-t-b $space-l-r
+  margin: $space-t-b auto
+  background-color: $quadrary
+
+a
+  color: $secondary
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+#breadcrumbs
+  color: $secondary
+  margin: $space-t-b 0
+
+#listingcontainer
+  padding: 1em
+  background-color: $tertiary
+  border: 1px solid $tertiary - #222
+
+#listingheader
+  padding: 1em
+  color: $quadrary
+  text-align: right
+  a
+    color: $quadrary
+
+#listingheader .file
+  text-align: left
+  float: left
+  width: 10%
+
+#listingheader .size
+  text-align: right
+  width: 10%
+  float: left
+
+#listing
+  border: 1px solid #A7C5FF
+  a
+    display: block
+    padding: 1em
+    font-family: Arial, Helvetica, sans-serif
+    text-decoration: none
+    text-align: right
+    &:hover
+      background-color: #DBE6FE
+    img
+      float: left
+      margin-right: 4px
+    strong
+      width: 10%
+      float: left
+      cursor: hand
+      cursor: pointer
+      text-align: left
+    em
+      float: left
+      width: 10%
+      text-align: right
+      cursor: hand
+      cursor: pointer
+    span
+      position: absolute
+      margin-left: -151px
+      margin-top: -2px
+      img
+        width: 150px
+        background-color: #CCCCCC
+        visibility: hidden
+    &:hover span img
+      border: 1px solid #666666
+      visibility: visible
+
+#upload
+  border: 1px solid #A7C5FF
+  display: block
+  margin-top: 10px
+  font-size: small
+  color: #6285CA
+  font-family: Arial, Helvetica, sans-serif
+  text-decoration: none
+  width: 568px
+  background-color: #E9F0FF
+
+#uploadtitle
+  background-color: #DBE6FE
+  padding: 2px 5px 2px 5px
+  border-bottom: 1px solid #A7C5FF
+
+#uploadcontent
+  padding: 2px 5px 2px 5px
+
+#copy
+  width: 600px
+  margin-left: auto
+  margin-right: auto
+  text-align: center
+  font-size: x-small
+  color: #666666
+  font-family: Arial, Helvetica, sans-serif
+  a
+    text-decoration: underline
+    color: #666666
+
+.b
+  background-color: #E9F0FF
+
+.w
+  background-color: #FFFFFF
+
+.mod, .size
+  float: right
+
+.upload-error
+  padding: 2px 0
+  strong
+    color: #993333
