@@ -514,6 +514,7 @@ $dirs = @array_values($dirs); $files = @array_values($files);
 				<tr class="<?php echo $class;?>">
 					<td>
 						<a href="<?php echo $fileurl;?>"<?php echo $thumb2;?>>
+							<?php //echo $thumb;?>
 							<img src="<?php echo $includeurl; ?>dlf/<?php echo $icon;?>" alt="<?php echo $files[$i];?>" />
 						</a>
 					</td>
@@ -529,7 +530,7 @@ $dirs = @array_values($dirs); $files = @array_values($files);
 					</td>
 					<td class="modified">
 						<a href="<?php echo $fileurl;?>"<?php echo $thumb2;?>>
-							<?php echo date ("M d Y h:i:s A", filemtime($includeurl.$leadon.$files[$i]));?><?php echo $thumb;?>
+							<?php echo date ("M d Y h:i:s A", filemtime($includeurl.$leadon.$files[$i]));?>
 						</a>
 					</td>
 				</tr>
