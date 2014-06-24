@@ -1,0 +1,203 @@
+// standard html elements
+
+@mixin core
+    // HTML-Elemente [BEGIN]
+
+    \:focus
+        outline: 0
+
+    \::-moz-selection
+        background: $primary
+        color: $quadrary
+
+    \::selection
+        background: $primary
+        color: $quadrary
+
+    html, body
+        min-height: 100%
+
+    body
+        background: $quadrary
+
+    fieldset
+        padding: $space-t-b $space-l-r
+        border:
+            color: $border-color + #222
+            style: $border-style
+            width: $border-width
+
+    // HTML-Elemente [END]
+
+    // Standart-Klassen [BEGIN]
+
+    .left
+        float: left
+
+    .right
+        float: right
+
+    .center
+        text-align: center
+
+    .img-left
+        float: left
+        margin-right: 2em
+        margin-bottom: 1em
+
+    .img-right
+        float: right
+        margin-left: 2em
+        margin-bottom: 1em
+
+    // Standart-Klassen [END]
+
+@mixin multi-col
+    // Multi-Column-Elemente
+    .multi-col-50-50
+        box-sizing: border-box
+        .col-1
+            width: 50%
+            float: left
+        .col-2
+            width: 50%
+            float: right
+
+    .multi-col-30-30-30
+        box-sizing: border-box
+        .col-1
+            width: 33%
+            float: left
+        .col-2
+            width: 34%
+            float: left
+        .col-3
+            width: 33%
+            float: left
+
+@mixin clearit
+    .clearit
+        height: 0 !important
+        width: 0 !important
+        line-height: 0 !important
+        clear: both !important
+        float: none !important
+
+@mixin clearfix
+    .clearfix:after
+        content: '.'
+        display: block
+        height: 0
+        clear: both
+        visibility: hidden
+        font-size: 0
+        clear: both
+
+@mixin page-width
+    .footer
+        margin: 0px auto
+        width: 100%
+
+    .width-wrap
+        max-width: $page-width
+        margin:
+            left: auto
+            right: auto
+
+    .inner-width-wrap
+        padding: $space-t-b $space-l-r
+
+    .main-content img
+        max-width: 100%
+
+    .page-wrap
+        padding: $space-t-b $space-l-r
+
+@mixin input
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="password"],
+    input[type="search"],
+    textarea
+        display: block
+        width: 100%
+        border:
+            width: $border-width
+            style: $border-style
+            color: $border-color
+        background: $quadrary
+        border-radius: $radius
+        padding: 0.3em 2%
+        font-size: 1em
+        line-height: 1.5em
+        transition: 0.2s
+        &:disabled
+            background: $quadrary - #111
+            color: $border-color - #666
+        &:focus
+            border-color: $border-color - #222
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.1)
+            background: $quadrary + #050505
+    textarea
+        resize: vertical
+
+@mixin table
+    table
+        width: 100%
+
+@mixin button
+    button,
+    .button,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"]
+        display: block
+        box-sizing: border-box
+        width: 100%
+        padding: 0.5em 1em
+        cursor: pointer
+        color: $quadrary
+        text:
+            align: center
+            decoration: none
+        background: $secondary
+        border: none
+        font-size: 1em
+        font-family: $font-std
+        border-radius: $radius
+        transition: 0.3s
+        &:hover
+            text-decoration: none
+            color: $quadrary
+            background: $secondary - #222
+        a
+            text-decoration: none
+        &:disabled, &.passive
+            background: $border-color + #111
+            cursor: default
+
+@mixin blockquote
+    blockquote
+        padding: 0 0 0 2.5em
+        margin: 2em 0
+        border-left: $border-width $border-style $border-color
+        font-style: italic
+
+@mixin pre
+    code
+        background: $quadrary - #111
+        padding: 0.1em 0.2em
+        border-radius: $radius
+        // white-space: nowrap
+    pre
+        background: $quadrary - #111
+        padding: 20px
+        overflow: scroll
+        border-radius: $radius
+        > code
+            white-space: pre
+        code
+            padding: 0
+            border: none
+            background: transparent
