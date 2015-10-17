@@ -33,7 +33,7 @@ you wish to list. The path must be relative to the current
 directory and cannot be above the location of index.php within the
 directory structure.
 */
-$startdir = '.';
+$startdir = './files';
 
 /*
 Show Thumbnails? - Set to true if you wish to use the
