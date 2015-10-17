@@ -74,7 +74,7 @@ $hide = array(
 				'index.php',
 				'Thumbs',
 				'.htaccess',
-				'.htpasswd'
+				'.htpasswd', '.gitkeep'
 			);
 
 /* Only Display Files With Extension... - if you only wish the user
